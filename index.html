@@ -140,11 +140,11 @@
                   </div>
                 </td>
               </tr>
-              <tr ng-show="tasks.length == 0">
-                <td colspan="4">タスクはありません</td>
-              </tr>
-              <tr ng-show="tasks.length != 0 && (tasks|filter:query.title).length == 0">
-                <td colspan="4">該当するタスクはありません</td>
+              <tr ng-show="(tasks|filter:query.title).length == 0">
+                <td colspan="4">
+                  <span ng-show="tasks.length == 0">タスクはありません</span>
+                  <span ng-show="tasks.length != 0 && (tasks|filter:query.title).length == 0">該当するタスクはありません</span>
+                </td>
               </tr>
             </tbody>
           </table>
