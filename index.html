@@ -13,13 +13,14 @@
 
           var TaskEditCtrl = (function () {
             var modalTask = {},
-                index;
+                index,
+                error = {};
             function TaskEditCtrl($scope) {
               $scope.task = modalTask;
               $scope.save = function () {
                 var task = angular.copy($scope.task) || {};
                 // validation
-                $scope.error = {};
+                $scope.error = error;
                 if (!task.title) {
                   $scope.error.title = {};
                   $scope.error.title.required = true;
@@ -44,6 +45,7 @@
               values = values || {};
               modalTask.title = values.title;
               modalTask.completed = values.completed;
+              error = {};
               var dialog = $('#taskEdit');
               dialog.modal();
               dialog.find('input:first').focus();
