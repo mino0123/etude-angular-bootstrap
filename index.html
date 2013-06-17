@@ -38,6 +38,8 @@
                 $('#taskEdit').modal('hide');
                 delete $scope.task.title;
                 delete $scope.task.completed;
+                // 追加した結果が見えないことがないようにフィルタをクリア
+                $scope.query.title = '';
               };
             };
             TaskEditCtrl.open = function (editIndex, values) {
